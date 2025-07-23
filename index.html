@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App Earnings Estimator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📲 App Earnings Estimator</h1>
+    <p>Estimate your app's ad earnings using realistic CPMs by country and ad type.</p>
+
+    <label for="downloads">Enter Total Downloads:</label>
+    <input type="number" id="downloads" placeholder="e.g., 1000000" />
+
+    <button onclick="calculateEarnings()">Calculate Earnings</button>
+
+    <div id="results" class="hidden">
+      <h2>👥 User Analysis</h2>
+      <p>Total Downloads: <strong id="totalDownloads"></strong></p>
+      <p>Estimated Active Users (20%): <strong id="activeUsers"></strong></p>
+
+      <div id="dailyRevenueSection" style="margin-top: 20px;"></div>
+
+      <h2>🌍 Country-wise Revenue (Mixed Ad Types)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>User %</th>
+            <th>Monthly Impressions</th>
+            <th>Total Revenue (₹)</th>
+            <th>Revenue in Words</th>
+          </tr>
+        </thead>
+        <tbody id="countryEarningsBody"></tbody>
+      </table>
+
+      <h2>📊 CPMs Used (₹ per 1000 Impressions)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Banner</th>
+            <th>Interstitial</th>
+            <th>Rewarded</th>
+          </tr>
+        </thead>
+        <tbody id="cpmTableBody"></tbody>
+      </table>
+
+      <h3>🧮 Assumptions Used</h3>
+      <ul>
+        <li><strong>Active Users</strong> = 20% of downloads</li>
+        <li><strong>Daily Ads</strong> = 3 impressions per active user</li>
+        <li><strong>Ad Mix</strong>: 50% Banner, 30% Interstitial, 20% Rewarded</li>
+      </ul>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
