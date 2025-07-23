@@ -5,59 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>App Earnings Estimator</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <h1>📲 App Earnings Estimator</h1>
-    <p>Estimate your app's ad earnings using realistic CPMs by country and ad type.</p>
+    <p class="subtitle">Estimate your app's ad earnings based on downloads using global CPM rates.</p>
 
-    <label for="downloads">Enter Total Downloads:</label>
-    <input type="number" id="downloads" placeholder="e.g., 1000000" />
-
-    <button onclick="calculateEarnings()">Calculate Earnings</button>
+    <div class="input-section">
+      <label for="downloads">Total Downloads:</label>
+      <input type="number" id="downloads" placeholder="e.g., 1000000" />
+      <button onclick="calculateEarnings()">Calculate</button>
+    </div>
 
     <div id="results" class="hidden">
-      <h2>👥 User Analysis</h2>
-      <p>Total Downloads: <strong id="totalDownloads"></strong></p>
-      <p>Estimated Active Users (20%): <strong id="activeUsers"></strong></p>
+      <section class="card">
+        <h2>👥 User Summary</h2>
+        <p><strong>Total Downloads:</strong> <span id="totalDownloads"></span></p>
+        <p><strong>Active Users (20%):</strong> <span id="activeUsers"></span></p>
+      </section>
 
-      <div id="dailyRevenueSection" style="margin-top: 20px;"></div>
+      <section class="card" id="dailyRevenueSection"></section>
 
-      <h2>🌍 Country-wise Revenue (Mixed Ad Types)</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Country</th>
-            <th>User %</th>
-            <th>Monthly Impressions</th>
-            <th>Total Revenue (₹)</th>
-            <th>Revenue in Words</th>
-          </tr>
-        </thead>
-        <tbody id="countryEarningsBody"></tbody>
-      </table>
+      <section class="card">
+        <h2>🌍 Country-wise Revenue</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>User %</th>
+                <th>Monthly Impressions</th>
+                <th>Total Revenue (₹)</th>
+                <th>In Words</th>
+              </tr>
+            </thead>
+            <tbody id="countryEarningsBody"></tbody>
+          </table>
+        </div>
+      </section>
 
-      <h2>📊 CPMs Used (₹ per 1000 Impressions)</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Country</th>
-            <th>Banner</th>
-            <th>Interstitial</th>
-            <th>Rewarded</th>
-          </tr>
-        </thead>
-        <tbody id="cpmTableBody"></tbody>
-      </table>
+      <section class="card">
+        <h2>📊 CPMs Used (per 1000 Impressions)</h2>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Banner</th>
+                <th>Interstitial</th>
+                <th>Rewarded</th>
+              </tr>
+            </thead>
+            <tbody id="cpmTableBody"></tbody>
+          </table>
+        </div>
+      </section>
 
-      <h3>🧮 Assumptions Used</h3>
-      <ul>
-        <li><strong>Active Users</strong> = 20% of downloads</li>
-        <li><strong>Daily Ads</strong> = 3 impressions per active user</li>
-        <li><strong>Ad Mix</strong>: 50% Banner, 30% Interstitial, 20% Rewarded</li>
-      </ul>
+      <section class="card">
+        <h3>🧮 Assumptions</h3>
+        <ul>
+          <li>Active Users = 20% of total downloads</li>
+          <li>Daily Impressions per User = 3</li>
+          <li>Ad Type Distribution: 50% Banner, 30% Interstitial, 20% Rewarded</li>
+        </ul>
+      </section>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
